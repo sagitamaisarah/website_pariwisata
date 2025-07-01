@@ -1,6 +1,6 @@
 <?php
 // Database connection
-include 'koneksi.php';
+include '../koneksi.php';
 
 // Check connection
 if ($conn->connect_error) {
@@ -46,9 +46,9 @@ if (isset($_GET['id'])) {
                 WHERE id_pesanan=$id";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Pesanan berhasil diperbarui'); window.location.href='daftarpesanan.php';</script>";
+            echo "<script>alert('Pesanan berhasil diperbarui'); window.location.href='index.php?page=daftar_pesan';</script>";
         } else {
-            echo "<script>alert('Error: " . $conn->error . "'); window.location.href='daftarpesanan.php';</script>";
+            echo "<script>alert('Error: " . $conn->error . "'); window.location.href='index.php=daftar_pesan';</script>";
         }
     }
 } else {
@@ -85,22 +85,7 @@ $conn->close();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php">Wisata</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="form.php">Form Pemesanan</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="daftarpesanan.php">Daftar Pesanan</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
 
     <div class="container mt-5">
         <h2>Edit Pesanan</h2>
@@ -157,6 +142,7 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
